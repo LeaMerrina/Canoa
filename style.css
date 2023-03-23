@@ -50,6 +50,8 @@ a {
 
 h1 {
   font-size: 3rem;
+  position: absolute;
+  color: #fff;
 }
 
 h2 {
@@ -67,7 +69,8 @@ p {
 }
 
 header{
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0px;
   z-index: 2;
   backdrop-filter: blur(10px) brightness(2);
@@ -161,8 +164,39 @@ section{
   align-items: center;
 }
 
+.hero{
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.container-img{
+  width: 100%;
+  position: absolute;
+  background-color: aqua;
+  display: flex;
+  height: 100%;
+  top: 0;
+}
+
+picture{
+  overflow: hidden;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+picture img{
+  width: 100%;
+  height: 100%;
+}
+
 #rent{
   background-color: green;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
 }
 
 #lessons{
@@ -171,6 +205,35 @@ section{
 
 .rent-lessons > div{
   text-align: center;
+}
+
+ul{
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+li{
+  font-size: 1.5rem;
+  line-height: 2;
+  text-align: left;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.surfboard-list li::before{
+  content: "🏄";
+  transform: translateY(-9%);
+}
+
+.bodyboard-list li::before{
+  content: url(icon/icons8-bodyboard-32.png);
+  transform: translateY(8%);
 }
 
 #information{
