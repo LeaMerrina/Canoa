@@ -28,6 +28,7 @@ body {
 .global-padding {
   padding-left: 5vw;
   padding-right: 5vw;
+
 }
 
 .flex-center{
@@ -59,7 +60,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -74,6 +75,13 @@ header{
   top: 0px;
   z-index: 2;
   backdrop-filter: blur(10px) brightness(2);
+  transition: transform 0.5s;
+  transition-delay: 0.2s;
+  transition: height 1s ease-in-out;
+}
+
+.hidden{
+  transform: translateY(-100%);
 }
 
 nav {
@@ -83,13 +91,25 @@ nav {
   justify-content: space-between;
 }
 
+.mini{
+  height: 3rem;
+}
+
+.mini .logo img{
+  height: 1.5rem;
+}
+
+.mini #contact img{
+  height: 1.5rem;
+}
+
 .center-nav {
   display: flex;
   gap: 1.5rem;
 }
 
 .logo img {
-  height: 5rem;
+  height: 3rem;
   width: auto;
 }
 
@@ -247,10 +267,11 @@ ul{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 li{
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 2;
   text-align: left;
   align-items: center;
@@ -258,12 +279,12 @@ li{
   gap: 0.5rem;
 }
 
-.surfboard-list li::before{
+.surf-titre::before{
   content: "🏄";
   transform: translateY(-9%);
 }
 
-.bodyboard-list li::before{
+.body-titre::before{
   content: url(icon/icons8-bodyboard-32.png);
   transform: translateY(8%);
 }
@@ -297,6 +318,21 @@ li{
 
 .schedule{
   background-color: aqua;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  gap: 0.3rem;
+}
+
+.bloc-img{
+  width: 100%;
+  height: 100%;
+  border: 0.3rem #000 solid;
 }
 
 
