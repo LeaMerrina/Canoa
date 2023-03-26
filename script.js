@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, "1000");
 
   let header = document.getElementById("header");
-  let lastScrollValue = 0;
+  let lastScrollValue = 0; 
 
   
   document.addEventListener('scroll',() => {
@@ -33,16 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     lastScrollValue = top;
   });
 
-  document.addEventListener('scroll', () => {
-    if (document.documentElement.scrollTop > 550) {
-      header.classList.add("mini")
-    } else {
-      header.classList.remove("mini")
-    }
-    tt = '120px'
-  })
-
-  console.log(window.scrollY);
 
 
 });
