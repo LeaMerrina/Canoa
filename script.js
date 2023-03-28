@@ -33,6 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
     lastScrollValue = top;
   });
 
+  const itemsGrid = Array.from(document.getElementsByClassName('bloc-img'));
+
+  itemsGrid.forEach(element => { 
+    const r = gsap.utils.random(-30, 30)
+    gsap.set(element, {rotation: r})
+  });
 
 
 });
