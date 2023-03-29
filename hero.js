@@ -13,6 +13,8 @@ let time = `${hours}:${minutes}:${seconds}`;
 
 let img;
 
+let mode = '';
+
 const params = [
     {
         image: 'sunset',
@@ -22,23 +24,29 @@ const params = [
     {
         image: 'night',
         start: '21:00:00',
+        mode: 'blanc',
         end: '23:59:59'
     },
     {
         image: 'night',
         start: '00:00:00',
+        mode: 'blanc',
         end: '07:59:59'
     } 
 ];
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    function displayMode(mode){
+        document.querySelector('body').classList.toggle(mode);
+    };
+
     function displayImage(img) {
         const picture = document.getElementById('picture');
         picture.innerHTML = `
           <picture>
-            <source srcset="image/${img}-small.jpg" media="(max-width: 700px)">
-            <img src="image/${img}-default.jpg" alt="${img}">
+            <source srcset="assets/${img}-small.jpg" media="(max-width: 700px)">
+            <img src="assets/${img}-default.jpg" alt="${img}">
           </picture>
         `;
     };
@@ -50,13 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentTime = new Date(`01/01/2023 ${time}`);
         if(currentTime >= startTime && currentTime <= endTime){
             img = element.image;
+            mode = element.mode;
+            displayMode(mode);
             displayImage(img);
             break;
         }
     };
     
     if(!img){
-        img = 'jour'
+        img = 'day'
     };
 
 
