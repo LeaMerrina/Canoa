@@ -81,18 +81,17 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 3rem;
+  margin: 0;
 }
 
 p {
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  margin: 0;
 }
+
+/* HEADER */
 
 header{
   position: fixed;
@@ -220,6 +219,8 @@ nav a:hover path {
   opacity: 0;
 }
 
+/* SECTIONS */
+
 section{
   min-height: 100vh;
 }
@@ -229,9 +230,7 @@ section:not(.hero){
 }
 
 
-#surf{
-  align-items: center;
-}
+/* HERO */
 
 .hero{
   overflow: hidden;
@@ -240,6 +239,10 @@ section:not(.hero){
   height: 100vh;
   text-align: center;
   flex-direction: column;
+}
+
+#surf{
+  align-items: center;
 }
 
 .container-img{
@@ -255,7 +258,6 @@ picture{
 }
 
 picture img{
-  /* object-fit: cover; */
   width: 100%;
   height: 150%;
 }
@@ -271,53 +273,120 @@ picture img{
   height: 100%;
 }
 
-.rent{
+/* LESSONS & RENT */
+
+.rent-lessons{
+  flex-direction: row;
+  gap: 6vh;
+}
+
+.cours{
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  align-items: center;
+  gap: 5rem;
+}
+
+.lessons-explications{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 6rem;
+
 }
 
 .lessons{
-  gap: 1.5rem;
-  display: flex;
   flex-direction: column;
-  align-items: center;
-
+  display: flex;
+  width: 50%;
 }
 
-.rent-lessons > div{
-  text-align: center;
+.explications{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+}
+
+.price{
+  font-size: 2rem;
+  top: 3rem;
+  position: relative;
+}
+
+
+.lessons-img{
+  width: 50%;
+  transform: rotate(-5deg) scale(0.8);
+}
+
+
+.lessons-img img{
+  width: 100%;
+  position: relative;
+}
+
+.rent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 ul{
   list-style: none;
   padding-left: 0;
   margin-left: 0;
-  height: 33vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
 li{
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 2;
   text-align: left;
   align-items: center;
   display: flex;
-  gap: 0.5rem;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
-.surf-titre::before{
-  content: "🏄";
-  transform: translateY(-9%);
+li span{
+  font-size: 1.3rem;
 }
 
-.body-titre::before{
-  content: url(icon/icons8-bodyboard-32.png);
-  transform: translateY(8%);
+.container-rent{
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+}
+
+.rent-surf, .rent-body{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: center; */
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.subtitle-rent{
+  transform: rotate(-90deg) translateX(-100%);
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  font-weight: 300;
+  top: 1.7rem;
+  left: 0;
+  transform-origin: 0 0;
+  font-size: 1rem;
+}
+
+.container-rent ul{
+  padding-left: 3rem;
 }
 
 #information{

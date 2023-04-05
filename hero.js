@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const picture = document.getElementById('picture');
         picture.innerHTML = `
           <picture>
-            <source srcset="assets/${img}-small.jpg" media="(max-width: 700px)">
-            <img src="assets/${img}-default.jpg" alt="${img}">
+            <source srcset="assets/photos/${img}-small.jpg" media="(max-width: 700px)">
+            <img src="assets/photos/${img}-default.jpg" alt="${img}">
           </picture>
         `;
     };
