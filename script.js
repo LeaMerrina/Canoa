@@ -134,17 +134,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const txtShop = Array.from(document.getElementsByClassName('txt-shop'));
   let currentElement;
+  let currentTarget;
 
   txtShop.forEach(element => {
     element.addEventListener('mouseover', (e) => {
       if (currentElement) {
         gsap.to(currentElement, 0.2, {opacity: 0, overwrite: true});
+        gsap.to(currentTarget, 0.2, {opacity: 0.5, overwrite: true})
+
       }
       let myId = e.currentTarget.getAttribute('id');
+      currentTarget = e.currentTarget;
       gsap.to(`.${myId}`, 0.2, {opacity: 1, overwrite: true});
+      gsap.to(currentTarget, 0.2, {opacity: 1, overwrite: true});
       currentElement = `.${myId}`;
-      
     })
+
   })
 
 });
