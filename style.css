@@ -366,8 +366,6 @@ li span{
 .rent-surf, .rent-body{
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  /* justify-content: center; */
   height: 100%;
   width: 100%;
   position: relative;
@@ -387,6 +385,22 @@ li span{
 
 .container-rent ul{
   padding-left: 3rem;
+}
+
+/* ABOUT */
+
+.about{
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  text-align: center;
+}
+
+.insta{
+  font-size: 2.5rem;
+  color: var(--main-color);
+  padding-left: 1rem;
+  font-weight: 400;
 }
 
 #information{
