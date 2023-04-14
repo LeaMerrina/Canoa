@@ -73,15 +73,6 @@ body {
   opacity: 0.5;
 }
 
-.small{
-  padding-top: var(--padding-small);
-  padding-bottom: var(--padding-small);
-}
-
-.small .logo img{
-  width: 6vh;
-}
-
 a {
   text-decoration: none;
   cursor: pointer;
@@ -113,18 +104,29 @@ header{
   width: 100%;
   top: 0px;
   z-index: 10;
-  /* backdrop-filter: blur(10px) brightness(2);
   transition: transform 0.5s;
-  transition-delay: 0.2s; */
+  transition-delay: 0.2s;
   padding-top: var(--second-padding);
   padding-bottom: var(--second-padding);
 }
 
 .hidden{
   transform: translateY(-100%);
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: var(--padding-small);
+  padding-bottom: var(--padding-small);
+}
 
+.small{
+  padding-top: var(--padding-small);
+  padding-bottom: var(--padding-small);
+}
+
+.small .logo img{
+  width: 6vh;
+}
+
+.small nav{
+  backdrop-filter: blur(0.3rem);
 }
 
 nav {
@@ -495,16 +497,17 @@ li span{
   display: flex;
   position: relative;
   flex-direction: column;
-  align-items: center;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .left{
   padding-left: 8rem;
+  align-items: center;
+
 }
 
 .right{
-  padding-right: 6rem;
+  padding-right: 3.5rem;
 }
 
 .left .txt-shop:first-child, .left .txt-shop:last-child{
@@ -542,7 +545,6 @@ li span{
 
 .txt-shop img{
   transition: opacity 0.4s ease-in-out;
-
 }
 
 .prix{
@@ -552,12 +554,28 @@ li span{
   font-size: 1.8rem;
 }
 
+.diff-int{
+  left: 5.5rem;
+}
+
+.diff-center{
+  left: 6rem;
+}
+
+.diff-ext{
+  right: -0.5rem;
+}
+
 .underline-shop{
   position: absolute;
   bottom: -1rem;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
+}
+
+.diff{
+  transform: translateX(-65%);
 }
 
 
@@ -571,7 +589,6 @@ li span{
 .plan-contact{
   display: flex;
   position: relative;
-  /* padding-top: var(--padding); */
 }
 
 .plan{
@@ -584,6 +601,97 @@ li span{
 .plan img{
   width: 100%;
   height: 100%;
+}
+
+.container-bloc-info{
+  display: flex;
+  position: absolute;
+  left: 25%;
+  transform: translateY(-50%);
+  top: 50%;
+  z-index: 2;
+  height: 30rem;
+  perspective: 1000px;
+}
+
+.bloc-info{
+  display: flex;
+  transform-style: preserve-3d;
+  transform: rotateY(17deg) rotateX(8deg);
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.infos {
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  gap: 1.5rem;
+  border-radius: 0.8rem;
+  z-index: 2;
+}
+
+.infos p {
+  color: var(--second-color);
+}
+
+.big{
+  font-size: 4rem;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  transform: rotate(357deg);
+}
+
+.infos a {
+  color: var(--second-color);
+  font-size: 1rem;
+}
+
+.info-img{
+  position: relative;
+  width: 24rem;
+  height: 18rem;
+}
+
+.info-img img{
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.schedule{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#triangle{
+  display : inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 94%;
+  z-index: 1;
+  height : 0;
+  width : 0;
+  border-top : 44px solid transparent;
+  border-bottom : 46px solid transparent;
+  border-left : 80px solid var(--main-color); 
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer p{
+  font-size: 1.3rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -602,11 +710,19 @@ li span{
     display: block;
   }
 
+  .small{
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .small nav{
+    backdrop-filter: blur(0);
+  }
+
   .center-nav {
     display: none;
   }
 
-  .center-nav a {
+  .center-nav a span{
     font-size: 1.5rem;
   }
 
@@ -614,13 +730,14 @@ li span{
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: var(--navHeight);
+    top: 157.21px;
     position: absolute;
     justify-content: center;
-    background-color: var(--bgc-color);
     left: 0;
     width: 100%;
     z-index: 10;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
   .openNav #vertical-line {
@@ -635,6 +752,14 @@ li span{
   .openNav .icon-burger {
     transform: rotate(45deg);
     transition: all 0.4s linear;
+  }
+
+  .small .openNav .center-nav{
+    top: 69.66px;
+  }
+
+  .hidden .openNav{
+    display: none;
   }
 
 }

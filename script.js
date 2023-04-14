@@ -1,5 +1,6 @@
 function SeeMore() {
-    document.querySelector("header").classList.toggle("openNav");
+    document.querySelector("nav").classList.toggle("openNav");
+    header.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
 };
 
 function addZero(i) {
@@ -39,6 +40,8 @@ const params = [
   } 
 ];
 
+const nav = document.querySelector("nav");
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -47,10 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
     SeeMore();
   };
 
+  document.querySelectorAll('.openNav .center-nav a ').onclick = function () {
+    const openNav = document.querySelector("nav").classList.toggle("openNav");
+  }
+
   let tt = document.querySelector("header").offsetHeight + "px";
   setTimeout(() => {
       document.documentElement.style.setProperty("--navHeight", tt);
   }, "1000");
+  
+  
 
   let heightHero = document.getElementById('header').offsetHeight;
 
@@ -99,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     lastScrollValue = top;
     if (window.scrollY > heightHero) {
-      document.getElementById('header').classList.add('small')
+      document.getElementById('header').classList.add('small');
     } else {
-      document.getElementById('header').classList.remove('small')
+      document.getElementById('header').classList.remove('small');
     }   
     if (img === 'night' && window.scrollY > heightHero) {
       document.getElementById('header').classList.add('night')
@@ -109,6 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('header').classList.remove('night')
     }
   });
+
+  
+  setInterval(() => {
+    if(window.scrollY == lastScrollValue){
+      header.style.backgroundColor = ''
+    }
+  }, 2000)
+
 
   const itemsGrid = Array.from(document.getElementsByClassName('bloc-img'));
 
