@@ -1,7 +1,6 @@
-function SeeMore() {
-    document.querySelector("nav").classList.toggle("openNav");
-    header.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-};
+const nav = document.querySelector("nav");
+const burger = document.getElementById("burger");
+
 
 function addZero(i) {
   if (i < 10) {
@@ -40,19 +39,33 @@ const params = [
   } 
 ];
 
-const nav = document.querySelector("nav");
+function setHeaderBackground(color) {
+  document.getElementById("header").style.backgroundColor = color;
+};
+
+function isAtTop() {
+  return window.pageYOffset === 0;
+};
 
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  document.getElementById("burger").addEventListener("click", function () {
+    document.querySelector("nav").classList.toggle("openNav");
+    if (document.querySelector("nav").classList.contains("openNav")) {
+      setHeaderBackground("rgba(255, 255, 255, 0.7)");
+    } else {
+      setHeaderBackground("transparent");
+    }
+  });
 
-  document.getElementById("burger").onclick = function () {
-    SeeMore();
+  const navLinks = document.querySelectorAll(".openNav .center-nav a");
+  for (let i = 0; i < navLinks.length; i++) {
+    navLinks[i].addEventListener("click", function () {
+      document.querySelector("nav").classList.remove("openNav");
+      setNavBackground("transparent");
+    });
   };
-
-  document.querySelectorAll('.openNav .center-nav a ').onclick = function () {
-    const openNav = document.querySelector("nav").classList.toggle("openNav");
-  }
 
   let tt = document.querySelector("header").offsetHeight + "px";
   setTimeout(() => {
@@ -61,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
 
-  let heightHero = document.getElementById('header').offsetHeight;
+  let heightHero = document.querySelector("header").offsetHeight;
 
   function displayMode(mode){
     document.querySelector('body').classList.toggle(mode);
@@ -95,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
       img = 'day'
   };
 
-  let header = document.getElementById("header");
   let lastScrollValue = 0; 
+  const header = document.getElementById("header");
 
   
   document.addEventListener('scroll',() => {
@@ -112,19 +125,14 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       document.getElementById('header').classList.remove('small');
     }   
-    if (img === 'night' && window.scrollY > heightHero) {
-      document.getElementById('header').classList.add('night')
+    if (isAtTop()) {
+      setHeaderBackground("transparent");
     } else {
-      document.getElementById('header').classList.remove('night')
+      setHeaderBackground("rgba(255, 255, 255, 0.7)");
     }
   });
 
-  
-  setInterval(() => {
-    if(window.scrollY == lastScrollValue){
-      header.style.backgroundColor = ''
-    }
-  }, 2000)
+
 
 
   const itemsGrid = Array.from(document.getElementsByClassName('bloc-img'));
@@ -153,21 +161,28 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentElement;
   let currentTarget;
 
-  txtShop.forEach(element => {
-    element.addEventListener('mouseover', (e) => {
-      if (currentElement) {
-        gsap.to(currentElement, 0.2, {opacity: 0, overwrite: true});
-        gsap.to(currentTarget, 0.2, {opacity: 0.5, overwrite: true})
+  if (window.matchMedia("(min-width: 1180px)").matches) {
+    txtShop.forEach(element => {
+      element.addEventListener('mouseover', (e) => {
+        if (currentElement) {
+          gsap.to(currentElement, 0.2, {opacity: 0, overwrite: true});
+          gsap.to(currentTarget, 0.2, {opacity: 0.5, overwrite: true})
+  
+        }
+        let myId = e.currentTarget.getAttribute('id');
+        currentTarget = e.currentTarget;
+        gsap.to(`.${myId}`, 0.2, {opacity: 1, overwrite: true});
+        gsap.to(currentTarget, 0.2, {opacity: 1, overwrite: true});
+        currentElement = `.${myId}`;
+      })
+  
+    });
+  };
 
-      }
-      let myId = e.currentTarget.getAttribute('id');
-      currentTarget = e.currentTarget;
-      gsap.to(`.${myId}`, 0.2, {opacity: 1, overwrite: true});
-      gsap.to(currentTarget, 0.2, {opacity: 1, overwrite: true});
-      currentElement = `.${myId}`;
-    })
 
-  })
+  if (window.matchMedia("(max-width: 540px)").matches) {
+    document.getElementsByClassName('third-img')[0].classList.add('global-padding');
 
+  };
 });
 
