@@ -104,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   };
 
+
   if(!img){
       img = 'day'
   };
