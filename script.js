@@ -162,24 +162,32 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentElement;
   let currentTarget;
 
-  if (window.matchMedia("(min-width: 1180px)").matches) {
-    txtShop.forEach(element => {
-      element.addEventListener('mouseover', (e) => {
-        if (currentElement) {
-          gsap.to(currentElement, 0.2, {opacity: 0, overwrite: true});
-          gsap.to(currentTarget, 0.2, {opacity: 0.5, overwrite: true})
-  
-        }
-        let myId = e.currentTarget.getAttribute('id');
-        currentTarget = e.currentTarget;
-        gsap.to(`.${myId}`, 0.2, {opacity: 1, overwrite: true});
-        gsap.to(currentTarget, 0.2, {opacity: 1, overwrite: true});
-        currentElement = `.${myId}`;
-      })
-  
-    });
+  function checkMediaQuery() {
+    if (window.innerWidth > 1180) {
+
+      txtShop.forEach(element => {
+
+        element.addEventListener('mouseover', (e) => {
+
+          if (currentElement) {
+            gsap.to(currentElement, 0.2, {opacity: 0, overwrite: true});
+            gsap.to(currentTarget, 0.2, {opacity: 0.5, overwrite: true})
+    
+          }
+          let myId = e.currentTarget.getAttribute('id');
+          currentTarget = e.currentTarget;
+          gsap.to(`.${myId}`, 0.2, {opacity: 1, overwrite: true});
+          gsap.to(currentTarget, 0.2, {opacity: 1, overwrite: true});
+          currentElement = `.${myId}`;
+        })
+    
+      });
+    };
   };
 
+  checkMediaQuery();
+
+  window.addEventListener('resize', checkMediaQuery);
 
   if (window.matchMedia("(max-width: 540px)").matches) {
     document.getElementsByClassName('third-img')[0].classList.add('global-padding');
