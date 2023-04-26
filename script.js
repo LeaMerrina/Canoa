@@ -121,16 +121,18 @@ document.addEventListener("DOMContentLoaded", function () {
     	header.classList.remove("hidden");
     }
     lastScrollValue = top;
-    if (window.scrollY > heightHero) {
-      document.getElementById('header').classList.add('small');
-    } else {
-      document.getElementById('header').classList.remove('small');
-    }   
-    if (isAtTop()) {
-      setHeaderBackground("transparent");
-    } else {
-      setHeaderBackground("rgba(255, 255, 255, 0.7)");
-    }
+    setTimeout(() => {
+      if (window.scrollY > heightHero) {
+        document.getElementById('header').classList.add('small');
+      } else {
+        document.getElementById('header').classList.remove('small');
+      }   
+      if (isAtTop()) {
+        setHeaderBackground("transparent");
+      } else {
+        setHeaderBackground("rgba(255, 255, 255, 0.7)");
+      }  
+    }, 500);
   });
 
 
