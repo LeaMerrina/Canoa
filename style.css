@@ -333,6 +333,7 @@ picture img{
   flex-direction: column;
   width: 50%;
   height: 100%;
+  position: relative;
 }
 
 .price{
@@ -748,10 +749,11 @@ transform: scaleX(-1) rotate(calc(var(--scroll-y) * 33deg)) translateX(calc(var(
 
 .circle{
   position: absolute;
-  height: 12rem;
-  left: 59rem;
-  top: 11rem;
+  transform: translateX(-55%);
+  left: 50%;
+  width: 140%;
   opacity: 0.5;
+  top: 4rem;
 }
 
 .hand{
