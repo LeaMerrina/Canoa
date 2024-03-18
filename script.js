@@ -65,14 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector("nav").classList.remove("openNav");
       setNavBackground("transparent");
     });
-  };
-
-  let tt = document.querySelector("header").offsetHeight + "px";
-  setTimeout(() => {
-      document.documentElement.style.setProperty("--navHeight", tt);
-  }, "1000");
-  
-  
+  };  
 
   let heightHero = document.querySelector("header").offsetHeight;
 

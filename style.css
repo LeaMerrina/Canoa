@@ -429,7 +429,6 @@ li span{
   gap: 4rem;
   align-items: center;
   justify-content: center;
-  padding-top: var(--navHeight);
 }
 
 .first-img{
@@ -460,7 +459,6 @@ li span{
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding-top: var(--navHeight);
   z-index: 4;
 }
 
@@ -790,7 +788,6 @@ li span{
 
   .shop{
     justify-content: space-around;
-    padding-top: var(--navHeight)!important;
   }
 
   .shop h2{
