@@ -28,7 +28,7 @@ body {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   position: relative;
   background-color: var(--bg-color);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .global-padding {
@@ -50,15 +50,7 @@ body {
   font-family: 'Mansalva', cursive;
 }
 
-.scroll-y-n-10{
 
-  transform:translateY(calc(var(--scroll-y) * -10%));
-
-}
-
-.scroll-y-n-30{
-  transform:translateY(calc(var(--scroll-y) * 50%));
-}
 
 .blanc .filter{
   filter: invert(1);
@@ -722,30 +714,7 @@ li span{
   position: absolute;
 }
 
-.palm{
-  z-index: 100;
-  pointer-events: none;
-  height: 70rem;
-  top: 30rem;
-  right: 30rem;
-  opacity: 0.2;
-  position: absolute;
-  transform: rotate(calc(var(--scroll-y) * 71deg)) translateX(calc(var(--scroll-y) * -90%));
-  transform-origin: bottom left;
-}
 
-
-.palm-invert{
-transform: scaleX(-1) rotate(calc(var(--scroll-y) * 33deg)) translateX(calc(var(--scroll-y) * -15%));
-    top: 73rem;
-    left: 117rem;
-    height: 85rem;
-    opacity: 0.2;
-    position: absolute;
-    z-index: 100;
-    pointer-events: none;
-    transform-origin: bottom left;
-}
 
 .circle{
   position: absolute;
@@ -879,10 +848,6 @@ transform: scaleX(-1) rotate(calc(var(--scroll-y) * 33deg)) translateX(calc(var(
 }
 
 @media screen and (max-width: 970px){
-
-  .palm-body{
-    display: none;
-  }
 
   .lessons-img{
     display: none;

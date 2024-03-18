@@ -145,21 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     gsap.set(element, {rotation: r})
   });
 
-  let root = document.documentElement;
-  let _h = root.scrollHeight - (window.innerHeight/2);
-
-  root.addEventListener("mousemove", e => {
-    let xPercent = e.clientX / window.innerWidth * 100;
-    let yPercent = e.clientY / window.innerHeight * 100;
-    root.style.setProperty('--mouse-x', xPercent);
-    root.style.setProperty('--mouse-y', yPercent);
-  });
-
-  window.addEventListener("scroll", (event) => {
-      let scroll = Math.min(window.scrollY/_h, 1);
-      root.style.setProperty('--scroll-y', scroll);
-  });
-
   const txtShop = Array.from(document.getElementsByClassName('txt-shop'));
   let currentElement;
   let currentTarget;
