@@ -95,6 +95,7 @@ header{
   padding-bottom: var(--padding-small);
   background-color: var(--nav-bg);
   backdrop-filter: blur(5px) saturate(1.2);
+  transition: top 400ms ease-out, background-color 400ms ease-out
 }
 
 .hidden{
@@ -142,6 +143,10 @@ nav {
 .logo img {
   height: 9vh;
   width: auto;
+}
+
+.logo {
+  z-index: 1;
 }
 
 nav a:not(.logo) {
@@ -926,7 +931,19 @@ li span{
   }
 
   .center-nav {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: -180px;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    width: 100%;
+    gap: 2rem;
+    pointer-events: none;
+    background-color: var(--nav-bg);
+    opacity: 0;
+    transition: top 400ms ease-out, opacity 400ms ease-out
   }
 
   .center-nav a span{
@@ -934,21 +951,13 @@ li span{
   }
 
   .openNav .center-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 157.21px;
-    position: absolute;
-    justify-content: center;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    gap: 2rem;
-    background-color: rgba(255, 255, 255, 0.7);
+    top: 80px;
+    opacity: 1;
+    pointer-events: none;
   }
 
   .openNav .filter:not(.logo-hero) {
-    filter: invert(0);
+    /* filter: invert(0); */
   }
 
   .openNav #vertical-line {
@@ -966,11 +975,11 @@ li span{
   }
 
   .small .openNav .center-nav{
-    top: 69.66px;
+    /* top: 69.66px; */
   }
 
   .hidden .openNav{
-    display: none;
+    /* display: none; */
   }
 
   picture img {
