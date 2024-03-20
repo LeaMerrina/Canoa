@@ -701,6 +701,8 @@ li span{
   justify-content: space-between;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer p{
@@ -799,6 +801,7 @@ li span{
     color: var(--main-color);
     transform: translateY(0) translateX(-50%);
     top: 0;
+    margin-top: 3rem;
   }
 
   .txt-shop{
@@ -812,6 +815,10 @@ li span{
 
   .underline-shop{
     display: none;
+  }
+
+  .left, .right{
+    padding-top: 6rem;
   }
 
   .left .txt-shop:first-child, .left .txt-shop:last-child{
@@ -951,9 +958,9 @@ li span{
   }
 
   .openNav .center-nav {
-    top: 80px;
+    top: 77.81px;
     opacity: 1;
-    pointer-events: none;
+    pointer-events: all;
   }
 
   .openNav .filter:not(.logo-hero) {
@@ -1001,7 +1008,6 @@ li span{
   .left{
     padding-right: 2rem;
   }
-
 
 
 }

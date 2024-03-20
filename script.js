@@ -50,6 +50,7 @@ function setHeaderBgOpacity(opacity) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+
   document.getElementById("burger").addEventListener("click", function () {
     document.querySelector("nav").classList.toggle("openNav");
     if (document.querySelector("nav").classList.contains("openNav")) {
@@ -58,6 +59,17 @@ document.addEventListener("DOMContentLoaded", function () {
       setHeaderBgOpacity();
     }
   });
+
+  const navElement = Array.from(document.getElementsByClassName('filter'));
+
+  navElement.forEach((element) => {
+    element.addEventListener('click', function () {
+      if (document.querySelector("nav").classList.contains("openNav")) {
+        document.querySelector("nav").classList.toggle("openNav");
+      }
+    })
+  });
+  
 
   function displayMode(mode) {
     const r = document.querySelector(":root");
@@ -92,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const endTime = new Date(`01/01/2023 ${param.end}`);
     const currentTime = new Date(`01/01/2023 ${time}`);
     if (currentTime >= startTime && currentTime <= endTime) {
-      setMode(params[0]);
+      setMode(param);
       break;
     }
   }
