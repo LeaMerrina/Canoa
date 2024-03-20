@@ -39,37 +39,17 @@ const params = [
   } 
 ];
 
-function setHeaderBackground(color) {
-  document.getElementById("header").style.backgroundColor = color;
-};
 
-function isAtTop() {
-  return window.pageYOffset === 0;
-};
 
 
 document.addEventListener("DOMContentLoaded", function () {
-
-  document.getElementById("burger").addEventListener("click", function () {
-    document.querySelector("nav").classList.toggle("openNav");
-    if (document.querySelector("nav").classList.contains("openNav")) {
-      setHeaderBackground("rgba(255, 255, 255, 0.7)");
-    } else {
-      setHeaderBackground("transparent");
-    }
-  });
-
-  const navLinks = document.querySelectorAll(".openNav .center-nav a");
-  for (let i = 0; i < navLinks.length; i++) {
-    navLinks[i].addEventListener("click", function () {
-      document.querySelector("nav").classList.remove("openNav");
-      setNavBackground("transparent");
-    });
-  };  
-
-  let heightHero = document.querySelector("header").offsetHeight;
-
   function displayMode(mode){
+    const r = document.querySelector(':root');
+    if (mode === 'blanc') {
+      r.style.setProperty('--nav-bg', 'rgba(0, 0, 0, 0.5)');
+    } else {
+      r.style.setProperty('--nav-bg', 'rgba(255, 255, 255, 0.2)');
+    }
     document.querySelector('body').classList.toggle(mode);
 };
 
@@ -83,16 +63,20 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
   };
 
+  function setMode(param) {
+    img = param.image;
+    mode = param.mode;
+    displayMode(mode);
+    displayImage(img);
+  }
+
   for (let index = 0; index < params.length; index++) {
-      const element = params[index];
-      const startTime = new Date(`01/01/2023 ${element.start}`);
-      const endTime = new Date(`01/01/2023 ${element.end}`);
+      const param = params[index];
+      const startTime = new Date(`01/01/2023 ${param.start}`);
+      const endTime = new Date(`01/01/2023 ${param.end}`);
       const currentTime = new Date(`01/01/2023 ${time}`);
       if(currentTime >= startTime && currentTime <= endTime){
-          img = element.image;
-          mode = element.mode;
-          displayMode(mode);
-          displayImage(img);
+         setMode(param)
           break;
       }
   };
@@ -101,35 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if(!img){
       img = 'day'
   };
-
-  let lastScrollValue = 0; 
-  const header = document.getElementById("header");
-
-  
-  document.addEventListener('scroll',() => {
-		let top  = document.documentElement.scrollTop;
-    if(lastScrollValue < top) {
-    	header.classList.add("hidden");
-    } else {
-    	header.classList.remove("hidden");
-    }
-    lastScrollValue = top;
-    setTimeout(() => {
-      if (window.scrollY > heightHero) {
-        document.getElementById('header').classList.add('small');
-      } else {
-        document.getElementById('header').classList.remove('small');
-      }   
-      if (isAtTop()) {
-        setHeaderBackground("transparent");
-      } else {
-        setHeaderBackground("rgba(255, 255, 255, 0.7)");
-      }  
-    }, 500);
-  });
-
-
-
 
   const itemsGrid = Array.from(document.getElementsByClassName('bloc-img'));
 
