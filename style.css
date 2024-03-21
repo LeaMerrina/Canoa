@@ -713,6 +713,11 @@ li span{
   text-align: right;
 }
 
+#link-site-lea{
+  color: var(--main-color);
+  font-size: 1.1rem;
+}
+
 /* DECO */
 
 .img-body{
